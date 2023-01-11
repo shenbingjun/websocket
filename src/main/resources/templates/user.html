@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- Import style -->
+    <link rel="stylesheet" href="../static/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="../static/vue.js"></script>
+    <!-- Import component library -->
+    <script src="../static/index.js"></script>
+</head>
+<body>
+<div id="app">
+    <template>
+        <div class="common-layout">
+            <el-container>
+                <el-header id="setHeaderHiget" style="background-color: #66b1ff;text-align: center;">Header</el-header>
+                <el-container>
+                    <el-aside style="background:rgb(169,171,171,0.2);text-align: center;">
+                        <el-col :span="12" id="userList">
+                            <h4>用户列表</h4>
+                            <el-menu
+                                    default-active="2"
+                                    class="el-menu-vertical-demo"
+                                    @open="handleOpen"
+                                    @close="handleClose"
+                                    background-color="#545c64"
+                                    text-color="#fff"
+                                    active-text-color="#ffd04b">
+                                <el-submenu index="1">
+                                    <template slot="title">
+                                        <i class="el-icon-location"></i>
+                                        <span>好朋友</span>
+                                    </template>
+                                </el-submenu>
+                                <el-menu-item index="2">
+                                    <i class="el-icon-menu"></i>
+                                    <span slot="title">上线人</span>
+                                </el-menu-item>
+                            </el-menu>
+                        </el-col>
+
+
+                    </el-aside>
+                    <el-container>
+                        <el-main id="setMainHiget" >
+                              <div style="height: 450px">1
+                              </div>
+                            <div>2
+                            </div>
+                        </el-main>
+                        <el-footer id="setFooterHiget" style="text-align: center;"></el-footer>
+                    </el-container>
+                </el-container>
+            </el-container>
+        </div>
+    </template>
+
+</div>
+
+</body>
+
+<script>
+
+    var vm = new Vue({
+        el: '#app',
+        data:{
+        }
+        ,
+        methods:{
+        }
+    })
+    clientWidth=document.body.clientWidth;
+    clientHeight=window.innerHeight;
+   // alert(clientHeight);
+    document.getElementById("setMainHiget").style.height=clientHeight-110 + "px";
+    document.getElementById("setFooterHiget").style.height=110-70 + "px";
+    document.getElementById("setHeaderHiget").style.height=55 + "px";
+    var userListWidth=clientWidth-document.getElementById("setMainHiget").clientWidth +"px";
+    var userListHight=clientHeight-document.getElementById("setHeaderHiget").clientHeight;
+    //alert(userListHight)
+    document.getElementById("userList").style.width=userListWidth;
+    document.getElementById("userList").style.height=500 +"px";
+</script>
+
+</html>
